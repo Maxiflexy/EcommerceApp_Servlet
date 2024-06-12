@@ -1,5 +1,5 @@
-<%@ page import="com.rossypotentials.model.User" %>
-<%@ page import="com.rossypotentials.model.Cart" %>
+<%@ page import="com.maxiflexy.model.Customer" %>
+<%@ page import="com.maxiflexy.model.Cart" %>
 <%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: decagon
@@ -9,7 +9,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    User auth = (User) request.getSession().getAttribute("auth");
+    Customer auth = (Customer) request.getSession().getAttribute("auth");
     if(auth != null){
         request.setAttribute("auth", auth);
     }
@@ -27,5 +27,7 @@
 <body>
     <%@include file="includes/navbar.jsp"%>
     <%@include file="includes/footer.jsp"%>
+    <h2>Thank You,</h2>
+    <h4>Order is currently processed for payment, Kindly wait for confirmation</h4>
 </body>
 </html>

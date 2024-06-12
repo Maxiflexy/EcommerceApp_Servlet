@@ -15,25 +15,24 @@ public class CustomerDAO {
         this.connection = connection;
     }
 
-    public void addUser(Customer customer) throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        String sql = "INSERT INTO customers (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
+    public void addUser(Customer customer) throws SQLException, ClassNotFoundException {
 
         try {
-            connection = ConnectionUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            //String sql = "INSERT INTO customers (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
+            //connection = ConnectionUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO customers (firstName, lastName, email, password) VALUES (?,?,?,?)");
             preparedStatement.setString(1, customer.getFirstName());
             preparedStatement.setString(2, customer.getLastName());
             preparedStatement.setString(3, customer.getEmail());
             preparedStatement.setString(4, customer.getPassword());
+
             preparedStatement.executeUpdate();
-            preparedStatement.close();
+            //preparedStatement.close();
 
         }catch (SQLException exception){
-            throw new RuntimeException();
+            throw new RuntimeException(exception);
         }
-        connection.close();
+        //connection.close();
 
     }
 

@@ -1,16 +1,16 @@
-<%@ page import="com.rossypotentials.model.User" %>
-<%@ page import="com.rossypotentials.dataAccessObject.ProductDao" %>
-<%@ page import="com.rossypotentials.util.ConnectionUtils" %>
-<%@ page import="com.rossypotentials.model.Product" %>
+<%@ page import="com.maxiflexy.model.Customer" %>
+<%@ page import="com.maxiflexy.dao.ProductDAO" %>
+<%@ page import="com.maxiflexy.utility.ConnectionUtil" %>
+<%@ page import="com.maxiflexy.model.Product" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.rossypotentials.model.Cart" %>
+<%@ page import="com.maxiflexy.model.Cart" %>
 <%@ page import="java.util.ArrayList" %>
 <%
-    User auth = (User) request.getSession().getAttribute("auth");
+    Customer auth = (Customer) request.getSession().getAttribute("auth");
     if(auth != null){
         request.setAttribute("auth", auth);
     }
-    ProductDao pd = new ProductDao(ConnectionUtils.getConnection());
+    ProductDAO pd = new ProductDAO(ConnectionUtil.getConnection());
     List<Product> products = pd.getAllProducts();
 
     ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
@@ -22,7 +22,7 @@
 <html>
 <head>
     <%@include file="/includes/head.jsp"%>
-    <title>E-Commerce Cart</title>
+    <title>E-Commerce Cart!!</title>
 </head>
 <body>
 <%@include file="/includes/navbar.jsp"%>
@@ -43,8 +43,10 @@
                     <h6 class="price">Price: $<%=p.getPrice() %></h6>
                     <h6 class="category">Category: <%=p.getCategory() %></h6>
                     <div class="mt-3 d-flex justify-content-between">
-                        <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a> <a
-                            class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
+                        <a class="btn btn-dark" href="add-to-cart?id=<%=p.getId()%>">Add to Cart</a>
+                        <a class="btn btn-primary" href="order-now?quantity=1&id=<%=p.getId()%>">Buy Now</a>
+                        <a href="likeProduct?productId=<%= p.getId() %>" class="btn btn-success">Like</a>
+                        <a href="saveProduct?productId=<%= p.getId() %>" class="btn btn-info">Save for Later</a>
                     </div>
                 </div>
             </div>

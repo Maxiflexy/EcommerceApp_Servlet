@@ -1,9 +1,9 @@
-<%@ page import="com.rossypotentials.model.User" %>
+<%@ page import="com.maxiflexy.model.Customer" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.rossypotentials.model.Cart" %>
+<%@ page import="com.maxiflexy.model.Cart" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.rossypotentials.dataAccessObject.ProductDao" %>
-<%@ page import="com.rossypotentials.util.ConnectionUtils" %>
+<%@ page import="com.maxiflexy.dao.ProductDAO" %>
+<%@ page import="com.maxiflexy.utility.ConnectionUtil" %>
 <%@ page import="java.text.DecimalFormat" %><%--
   Created by IntelliJ IDEA.
   User: decagon
@@ -15,14 +15,14 @@
 <%
     DecimalFormat dcf = new DecimalFormat("#.##");
     request.setAttribute("dcf", dcf);
-    User auth = (User) request.getSession().getAttribute("auth");
+    Customer auth = (Customer) request.getSession().getAttribute("auth");
     if(auth != null){
         request.setAttribute("auth", auth);
     }
     ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
     List<Cart> cartProduct = null;
     if (cart_list != null){
-        ProductDao pDao = new ProductDao(ConnectionUtils.getConnection());
+        ProductDAO pDao = new ProductDAO(ConnectionUtil.getConnection());
         cartProduct = pDao.getCartProducts(cart_list);
         double total = pDao.getTotalCartPrice(cart_list);
         request.setAttribute("cart_list", cart_list);

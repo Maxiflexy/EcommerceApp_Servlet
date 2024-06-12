@@ -13,6 +13,7 @@
 <body>
 <h1>Signup Success</h1>
 <p>Your account has been created successfully! Login below.</p>
-<a href="login-form.jsp">Go to login page</a>
+<a href="adminLogin.jsp">Go to Admin Login Page</a><br><br>
+<a href="login-form.jsp">Go to Customer login page </a>
 </body>
 </html>

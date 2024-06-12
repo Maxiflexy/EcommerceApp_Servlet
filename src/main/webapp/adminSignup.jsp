@@ -107,7 +107,7 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="admin-signup" method="post">
+    <form action="admin_signup" method="post">
         <h2>Create Account</h2>
         <p class="lead">It's free and hardly takes more than 30 seconds.</p>
         <div class="form-group">
@@ -138,9 +138,9 @@
             </div>
         </div>
         <div class="form-group">
-       <a href="adminLogin.jsp">     <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button></a>
+            <a href="signup-success.jsp"><button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button></a>
         </div>
-        <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
+        <p class="small text-center">By clicking the Sign-Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
     </form>
     <div class="text-center">Already have an account? <a href="adminLogin.jsp">Login here</a>.</div>
 </div>

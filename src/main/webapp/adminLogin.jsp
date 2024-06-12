@@ -79,20 +79,23 @@
 </head>
 <body>
 <div class="login-form">
-    <form action="admin-servlet" method="post">
+    <form action="admin-login" method="post">
         <h2 class="text-center">Login</h2>
         <div class="form-group has-error">
-            <input type="email" class="form-control" name="email" placeholder="Username" required="required">
+            <input type="email" class="form-control" name="email" placeholder="Email" required="required">
         </div>
         <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="adminToken" placeholder="Admin token" required="required">
+            <input type="password" class="form-control" name="adminToken" placeholder="Admin-token" required="required">
         </div>
         <div class="form-group">
-            <a href="adminDashboard.jsp">  <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button></a>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button><
         </div>
+<%--        <div class="form-group">--%>
+<%--            <a href="adminDashboard.jsp">  <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button></a>--%>
+<%--        </div>--%>
         <p><a href="#">Lost your Password?</a></p>
     </form>
     <p class="text-center-small" style="color: #262626">Don't have an account? <a href="adminSignup.jsp" style="color: #262626">Sign up here!</a></p>

@@ -219,29 +219,23 @@
             <h2>Sign In</h2>
 
             <div class="form">
+                <form action="customer-login" method="post">
+                    <div class="inputBox">
+                        <input type="text" name="email" required> <i>Email</i>
+                    </div>
 
-                <div class="inputBox">
+                    <div class="inputBox">
+                        <input type="password" name="password" required> <i>Password</i>
+                    </div>
 
-                    <input type="text" required> <i>Username</i>
+                    <div class="links">
+                        <a href="#">Forgot Password</a> <a href="signup-form.jsp">Signup</a>
+                    </div>
+                    <div class="inputBox">
+                        <a href="product_page.jsp"> <input type="submit" value="Login"></a>
+                    </div>
 
-                </div>
-
-                <div class="inputBox">
-
-                    <input type="password" required> <i>Password</i>
-
-                </div>
-
-                <div class="links"> <a href="#">Forgot Password</a> <a href="signup-form.jsp">Signup</a>
-
-                </div>
-
-                <div class="inputBox">
-
-                   <a href="product_page.jsp"> <input type="submit" value="Login"></a>
-
-                </div>
-
+                </form>
             </div>
 
         </div>

@@ -11,16 +11,16 @@ public class ConnectionUtil {
     private static final String JDBC_PASSWORD = "password";
 
 
-    public static Connection getConnection() throws SQLException {
-        Connection connection;
-        try {
+    public static Connection getConnection(){
+        Connection connection = null;
+        try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(JDBC_URL,JDBC_USERNAME,JDBC_PASSWORD);
+            connection = DriverManager.getConnection(JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD);
+
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         return connection;
-        //return DriverManager.getConnection(JDBC_URL, JDBC_USERNAME, JDBC_PASSWORD);
     }
 
 
